@@ -80,7 +80,7 @@ Contact table data after deleting contactId 6
 * Deploy Spring Boot web application to Azure
 ![img_27.png](img_27.png)
 ![img_28.png](img_28.png)
-![img_29.png](img_29.png)
+![img_36.png](img_36.png)
 ![img_30.png](img_30.png)
 
 #### Security after deploying to Azure
