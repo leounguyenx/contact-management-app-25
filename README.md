@@ -70,7 +70,15 @@ Contact table data after deleting contactId 6
 ![img_22.png](img_22.png)
 * JWT-based authentication
 ![img_23.png](img_23.png)
-* Authorization
+
+### 5. Deploy to Cloud
+* Deploy MySql database to Azure
+![img_24.png](img_24.png)
+![img_26.png](img_26.png)
+![img_25.png](img_25.png)
+* Deploy Spring Boot web application to Azure
+![img_27.png](img_27.png)
+![img_28.png](img_28.png)
 
 ![img.png](img.png)
 
