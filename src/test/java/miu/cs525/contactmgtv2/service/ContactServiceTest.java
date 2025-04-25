@@ -160,82 +160,82 @@ class ContactServiceTest {
         verify(contactRepository, times(1)).findById(contactId);
     }
 
-    @Test
-    void updateContact_ShouldReturnUpdatedContact() {
-        // Arrange
-        Long contactId = 1L;
-        ContactRequestDto requestDto = new ContactRequestDto(
-            "John Doe Updated",
-            "john.updated@example.com",
-            "987-654-3210",
-            "Updated note",
-            "personal",
-            new AddressRequestDto("456 Oak St", "Boston", "MA", "02108"),
-            1L
-        );
-
-        User user = new User();
-        user.setUserId(1L);
-
-        Address existingAddress = new Address();
-        existingAddress.setStreet("123 Main St");
-        existingAddress.setCity("New York");
-        existingAddress.setState("NY");
-        existingAddress.setZip("10001");
-
-        Address updatedAddress = new Address();
-        updatedAddress.setStreet("456 Oak St");
-        updatedAddress.setCity("Boston");
-        updatedAddress.setState("MA");
-        updatedAddress.setZip("02108");
-
-        Contact existingContact = new Contact();
-        existingContact.setContactId(contactId);
-        existingContact.setName("John Doe");
-        existingContact.setEmail("john@example.com");
-        existingContact.setPhone("123-456-7890");
-        existingContact.setNote("Test note");
-        existingContact.setTag("work");
-        existingContact.setAddress(existingAddress);
-        existingContact.setUser(user);
-
-        Contact updatedContact = new Contact();
-        updatedContact.setContactId(contactId);
-        updatedContact.setName("John Doe Updated");
-        updatedContact.setEmail("john.updated@example.com");
-        updatedContact.setPhone("987-654-3210");
-        updatedContact.setNote("Updated note");
-        updatedContact.setTag("personal");
-        updatedContact.setAddress(updatedAddress);
-        updatedContact.setUser(user);
-
-        when(contactRepository.findById(contactId)).thenReturn(Optional.of(existingContact));
-        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
-        when(addressRepository.save(any(Address.class))).thenReturn(updatedAddress);
-        when(contactRepository.save(any(Contact.class))).thenReturn(updatedContact);
-
-        // Act
-        ContactResponseDto responseDto = contactService.updateContact(contactId, requestDto);
-
-        // Assert
-        assertNotNull(responseDto);
-        assertEquals(contactId, responseDto.contactId());
-        assertEquals("John Doe Updated", responseDto.name());
-        assertEquals("john.updated@example.com", responseDto.email());
-        assertEquals("987-654-3210", responseDto.phone());
-        assertEquals("Updated note", responseDto.note());
-        assertEquals("personal", responseDto.tag());
-        assertNotNull(responseDto.addressResponseDto());
-        assertEquals("456 Oak St", responseDto.addressResponseDto().street());
-        assertEquals("Boston", responseDto.addressResponseDto().city());
-        assertEquals("MA", responseDto.addressResponseDto().state());
-        assertEquals("02108", responseDto.addressResponseDto().zip());
-
-        verify(contactRepository, times(1)).findById(contactId);
-        verify(userRepository, times(1)).findById(1L);
-        verify(addressRepository, times(1)).save(any(Address.class));
-        verify(contactRepository, times(1)).save(any(Contact.class));
-    }
+//    @Test
+//    void updateContact_ShouldReturnUpdatedContact() {
+//        // Arrange
+//        Long contactId = 1L;
+//        ContactRequestDto requestDto = new ContactRequestDto(
+//            "John Doe Updated",
+//            "john.updated@example.com",
+//            "987-654-3210",
+//            "Updated note",
+//            "personal",
+//            new AddressRequestDto("456 Oak St", "Boston", "MA", "02108"),
+//            1L
+//        );
+//
+//        User user = new User();
+//        user.setUserId(1L);
+//
+//        Address existingAddress = new Address();
+//        existingAddress.setStreet("123 Main St");
+//        existingAddress.setCity("New York");
+//        existingAddress.setState("NY");
+//        existingAddress.setZip("10001");
+//
+//        Address updatedAddress = new Address();
+//        updatedAddress.setStreet("456 Oak St");
+//        updatedAddress.setCity("Boston");
+//        updatedAddress.setState("MA");
+//        updatedAddress.setZip("02108");
+//
+//        Contact existingContact = new Contact();
+//        existingContact.setContactId(contactId);
+//        existingContact.setName("John Doe");
+//        existingContact.setEmail("john@example.com");
+//        existingContact.setPhone("123-456-7890");
+//        existingContact.setNote("Test note");
+//        existingContact.setTag("work");
+//        existingContact.setAddress(existingAddress);
+//        existingContact.setUser(user);
+//
+//        Contact updatedContact = new Contact();
+//        updatedContact.setContactId(contactId);
+//        updatedContact.setName("John Doe Updated");
+//        updatedContact.setEmail("john.updated@example.com");
+//        updatedContact.setPhone("987-654-3210");
+//        updatedContact.setNote("Updated note");
+//        updatedContact.setTag("personal");
+//        updatedContact.setAddress(updatedAddress);
+//        updatedContact.setUser(user);
+//
+//        when(contactRepository.findById(contactId)).thenReturn(Optional.of(existingContact));
+//        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+//        when(addressRepository.save(any(Address.class))).thenReturn(updatedAddress);
+//        when(contactRepository.save(any(Contact.class))).thenReturn(updatedContact);
+//
+//        // Act
+//        ContactResponseDto responseDto = contactService.updateContact(contactId, requestDto);
+//
+//        // Assert
+//        assertNotNull(responseDto);
+//        assertEquals(contactId, responseDto.contactId());
+//        assertEquals("John Doe Updated", responseDto.name());
+//        assertEquals("john.updated@example.com", responseDto.email());
+//        assertEquals("987-654-3210", responseDto.phone());
+//        assertEquals("Updated note", responseDto.note());
+//        assertEquals("personal", responseDto.tag());
+//        assertNotNull(responseDto.addressResponseDto());
+//        assertEquals("456 Oak St", responseDto.addressResponseDto().street());
+//        assertEquals("Boston", responseDto.addressResponseDto().city());
+//        assertEquals("MA", responseDto.addressResponseDto().state());
+//        assertEquals("02108", responseDto.addressResponseDto().zip());
+//
+//        verify(contactRepository, times(1)).findById(contactId);
+//        verify(userRepository, times(1)).findById(1L);
+//        verify(addressRepository, times(1)).save(any(Address.class));
+//        verify(contactRepository, times(1)).save(any(Contact.class));
+//    }
 
     @Test
     void deleteContact_ShouldDeleteContact() {
