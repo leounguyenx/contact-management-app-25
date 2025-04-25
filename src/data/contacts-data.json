@@ -1,0 +1,88 @@
+{
+  "contacts": [
+    {
+      "name": "Leo Nguyen",
+      "email": "leo.nguyen@example.com",
+      "phone": "123-456-7890",
+      "note": "Important client",
+      "tag": "Business",
+      "addressRequestDto": {
+        "street": "1000 Moncacan St",
+        "city": "Fairfield",
+        "state": "IA",
+        "zip": "52557"
+      },
+      "userId": 1
+    },
+    {
+      "name": "Emma Tran",
+      "email": "emma.tran@example.com",
+      "phone": "321-654-0987",
+      "note": "Met at tech conference",
+      "tag": "Networking",
+      "addressRequestDto": {
+        "street": "202 Silicon Ave",
+        "city": "San Jose",
+        "state": "CA",
+        "zip": "95110"
+      },
+      "userId": 1
+    },
+    {
+      "name": "David Kim",
+      "email": "david.kim@example.com",
+      "phone": "555-123-9876",
+      "note": "Potential investor",
+      "tag": "Investor",
+      "addressRequestDto": {
+        "street": "500 Capital Rd",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10001"
+      },
+      "userId": 1
+    },
+    {
+      "name": "Sophia Le",
+      "email": "sophia.le@example.com",
+      "phone": "888-999-0001",
+      "note": "Old college friend",
+      "tag": "Personal",
+      "addressRequestDto": {
+        "street": "300 Lakeview Blvd",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60616"
+      },
+      "userId": 1
+    },
+    {
+      "name": "Chris Pham",
+      "email": "chris.pham@example.com",
+      "phone": "777-888-3333",
+      "note": "Startup founder",
+      "tag": "Startup",
+      "addressRequestDto": {
+        "street": "42 Startup Lane",
+        "city": "Austin",
+        "state": "TX",
+        "zip": "73301"
+      },
+      "userId": 1
+    },
+    {
+      "name": "Lily Vo",
+      "email": "lily.vo@example.com",
+      "phone": "222-333-4444",
+      "note": "Freelancer contact",
+      "tag": "Freelance",
+      "addressRequestDto": {
+        "street": "808 Freelance Dr",
+        "city": "Seattle",
+        "state": "WA",
+        "zip": "98101"
+      },
+      "userId": 1
+    }
+  ]
+}
