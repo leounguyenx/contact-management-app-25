@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import miu.cs525.contactmgtv2.dto.request.ContactRequestDto;
 import miu.cs525.contactmgtv2.dto.response.AddressResponseDto;
 import miu.cs525.contactmgtv2.dto.response.ContactResponseDto;
+import miu.cs525.contactmgtv2.exception.ResourceNotFoundException;
 import miu.cs525.contactmgtv2.model.Address;
 import miu.cs525.contactmgtv2.model.Contact;
 import miu.cs525.contactmgtv2.model.User;
@@ -44,7 +45,7 @@ public class ContactServiceImpl implements ContactService {
                 address
         );
 
-        User user = userRepository.findById(contactRequestDto.userId()).orElseThrow(() -> new RuntimeException("User not found"));
+        User user = userRepository.findById(contactRequestDto.userId()).orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + contactRequestDto.userId()));
         contact.setUser(user);
 
         Contact saved = contactRepository.save(contact);
@@ -70,7 +71,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ContactResponseDto updateContact(Long contactId, ContactRequestDto contactRequestDto) {
         Contact contact = contactRepository.findById(contactId)
-                .orElseThrow(() -> new RuntimeException("Contact not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Contact not found: ID " + contactId));
 
         contact.setName(contactRequestDto.name());
         contact.setEmail(contactRequestDto.email());
@@ -108,7 +109,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public void deleteContact(Long contactId) {
         if (!contactRepository.existsById(contactId)) {
-            throw new RuntimeException("Contact not found");
+            throw new ResourceNotFoundException("Contact not found: ID " + contactId);
         }
         contactRepository.deleteById(contactId);
     }
@@ -145,7 +146,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ContactResponseDto getContactById(Long contactId) {
         Contact contact = contactRepository.findById(contactId)
-                .orElseThrow(() -> new RuntimeException("Contact not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Contact not found: ID " + contactId));
         Address address = contact.getAddress();
         AddressResponseDto addressDto = new AddressResponseDto(
                 address.getStreet(),

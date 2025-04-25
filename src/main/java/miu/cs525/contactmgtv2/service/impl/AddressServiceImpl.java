@@ -3,6 +3,7 @@ package miu.cs525.contactmgtv2.service.impl;
 import lombok.RequiredArgsConstructor;
 import miu.cs525.contactmgtv2.dto.request.AddressRequestDto;
 import miu.cs525.contactmgtv2.dto.response.AddressResponseDto;
+import miu.cs525.contactmgtv2.exception.ResourceNotFoundException;
 import miu.cs525.contactmgtv2.model.Address;
 import miu.cs525.contactmgtv2.repository.AddressRepository;
 import miu.cs525.contactmgtv2.service.AddressService;
@@ -22,7 +23,7 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public AddressResponseDto updateAddress(Long addressId, AddressRequestDto addressRequestDto) {
         Address address = addressRepository.findById(addressId)
-                .orElseThrow(() -> new RuntimeException("Address not found with ID: " + addressId));
+                .orElseThrow(() -> new ResourceNotFoundException("Address not found with ID: " + addressId));
         address.setStreet(addressRequestDto.street());
         address.setCity(addressRequestDto.city());
         address.setState(addressRequestDto.state());

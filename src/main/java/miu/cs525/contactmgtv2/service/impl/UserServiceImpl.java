@@ -5,6 +5,7 @@ import miu.cs525.contactmgtv2.dto.request.UserRequestDto;
 import miu.cs525.contactmgtv2.dto.request.UserRequestUpdateDto;
 import miu.cs525.contactmgtv2.dto.response.AddressResponseDto;
 import miu.cs525.contactmgtv2.dto.response.UserResponseDto;
+import miu.cs525.contactmgtv2.exception.ResourceNotFoundException;
 import miu.cs525.contactmgtv2.model.Address;
 import miu.cs525.contactmgtv2.model.User;
 import miu.cs525.contactmgtv2.repository.AddressRepository;
@@ -67,7 +68,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDto updateUser(Long userId, UserRequestUpdateDto userRequestUpdateDto) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + userId));
 
         // Update basic user fields
         user.setFirstName(userRequestUpdateDto.firstName());
@@ -113,7 +114,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long userId) {
         if (!userRepository.existsById(userId)) {
-            throw new RuntimeException("User not found with ID: " + userId);
+            throw new ResourceNotFoundException("User not found with ID: " + userId);
         }
         userRepository.deleteById(userId);
     }
@@ -150,7 +151,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDto getUserById(Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + userId));
 
         Address address = user.getAddress();
         AddressResponseDto addressResponseDto = new AddressResponseDto(
