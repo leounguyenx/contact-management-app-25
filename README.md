@@ -60,8 +60,16 @@ After deleting userId 4
 ![img_17.png](img_17.png)
 Contact table data after deleting contactId 6
 ![img_18.png](img_18.png)
-### 3.	Sorting
-* Pagination and sorting
+### 3.	Exception Handling
+* Custom exception handling
+![img_20.png](img_20.png)
+![img_21.png](img_21.png)
+
+### 4. Security
+* Spring Security - Basic Authentication
+![img_22.png](img_22.png)
+* JWT-based authentication
+* Authorization
 
 ![img.png](img.png)
 
