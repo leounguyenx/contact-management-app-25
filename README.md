@@ -3,21 +3,22 @@
 As a User, 
 - I want to register to the system as User role
 - I want to login to the system
-- I want to add a new contact (done)
-- I want to view a contact details (done)
-- I want to update a contact (done)
-- I want to delete a contact (done)
--I want to update my user information (done)
+- I want to add a new contact 
+- I want to view a contact details 
+- I want to update a contact 
+- I want to delete a contact 
+-I want to update my user information 
 - I want to view my contact list:
-  - I can view all my contacts with pagination (done)
-  - I can sort my contact list (done)
+  - I can view all my contacts with pagination 
+  - I can sort my contact list 
+  
 As an Admin,
-- I want to login to the system as Admin role (Admin should be created before)
-- I want to view a list of all Users in the system (done)
-- I want to create a new user (done)
-- I want to view user information (done)
-- I want to update a user information (done)
-- I want to delete a user (done)
+- I want to login to the system as Admin role
+- I want to view a list of all Users in the system
+- I want to create a new user
+- I want to view user information 
+- I want to update a user information 
+- I want to delete a user 
 
 ## Entity Relationship Diagram
 - User: userId, firstName, lastName, email, password phone, address
@@ -79,6 +80,22 @@ Contact table data after deleting contactId 6
 * Deploy Spring Boot web application to Azure
 ![img_27.png](img_27.png)
 ![img_28.png](img_28.png)
+![img_29.png](img_29.png)
+![img_30.png](img_30.png)
+
+#### Security after deploying to Azure
+![img_33.png](img_33.png)
+
+### 6. Unit Testing
+* Controller
+![img_31.png](img_31.png)
+* Service
+![img_32.png](img_32.png)
+* Repository
+![img_34.png](img_34.png)
+
+### 7. Docker
+![img_35.png](img_35.png)
 
 ![img.png](img.png)
 

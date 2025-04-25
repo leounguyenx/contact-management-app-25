@@ -1,13 +1,14 @@
 package miu.cs525.contactmgtv2.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
 import miu.cs525.contactmgtv2.model.Role;
 
 public record UserRequestDto(
-        String firstName,
-        String lastName,
-        String email,
-        String password,
+        @NotBlank String firstName,
+        @NotBlank String lastName,
+        @NotBlank String email,
+        @NotBlank String password,
         String phone,
         AddressRequestDto addressRequestDto,
-        Role role
+        @NotBlank Role role
 ) {}
