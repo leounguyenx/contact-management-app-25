@@ -2,6 +2,7 @@ package miu.cs525.contactmgtv2.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "address")
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
 public class Address {
     @Id

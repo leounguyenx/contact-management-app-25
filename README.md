@@ -69,6 +69,7 @@ Contact table data after deleting contactId 6
 * Spring Security - Basic Authentication
 ![img_22.png](img_22.png)
 * JWT-based authentication
+![img_23.png](img_23.png)
 * Authorization
 
 ![img.png](img.png)

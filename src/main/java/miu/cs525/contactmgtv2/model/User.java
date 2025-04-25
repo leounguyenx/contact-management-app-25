@@ -2,6 +2,7 @@ package miu.cs525.contactmgtv2.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -44,15 +46,15 @@ public class User {
 
 
     // Full constructor
-//    public User(String firstName, String lastName, String email, String password, String phone, Address address, Role role) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.email = email;
-//        this.password = password;
-//        this.phone = phone;
-//        this.address = address;
-//        this.role = role;
-//    }
+    public User(String firstName, String lastName, String email, String password, String phone, Address address, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.address = address;
+        this.role = role;
+    }
 
     // Minimum Constructor
 //    public User(String firstName, String lastName, String email, String password, Role role) {
